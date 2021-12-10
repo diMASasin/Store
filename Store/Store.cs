@@ -14,7 +14,7 @@ namespace Store
             Good iPhone11 = new Good("IPhone 11");
 
             Warehouse warehouse = new Warehouse();
-            warehouse.Add(iPhone11, -5); //Ошибка
+            warehouse.Add(iPhone11, -5); //РћС€РёР±РєР°
 
             Shop shop = new Shop(warehouse);
 
@@ -22,21 +22,21 @@ namespace Store
             warehouse.Add(iPhone12, 5);
             warehouse.Add(iPhone11, 1);
 
-            ////Вывод всех товаров на складе с их остатком
+            ////Р’С‹РІРѕРґ РІСЃРµС… С‚РѕРІР°СЂРѕРІ РЅР° СЃРєР»Р°РґРµ СЃ РёС… РѕСЃС‚Р°С‚РєРѕРј
             view.ShowStorage(warehouse.CellsView);
 
             Cart cart = shop.GetCart();
             cart.Add(iPhone12, 4);
-            cart.Add(iPhone11, 3); //при такой ситуации возникает ошибка так, как нет нужного количества товара на складе
+            cart.Add(iPhone11, 3); //РїСЂРё С‚Р°РєРѕР№ СЃРёС‚СѓР°С†РёРё РІРѕР·РЅРёРєР°РµС‚ РѕС€РёР±РєР° С‚Р°Рє, РєР°Рє РЅРµС‚ РЅСѓР¶РЅРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІР° С‚РѕРІР°СЂР° РЅР° СЃРєР»Р°РґРµ
 
-            ////Вывод всех товаров в корзине
+            ////Р’С‹РІРѕРґ РІСЃРµС… С‚РѕРІР°СЂРѕРІ РІ РєРѕСЂР·РёРЅРµ
             view.ShowStorage(cart.CellsView);
 
-            Console.WriteLine(cart.Order().Paylink);  //Paylink - просто какая-нибудь случайная строка.
+            Console.WriteLine(cart.Order().Paylink);  //Paylink - РїСЂРѕСЃС‚Рѕ РєР°РєР°СЏ-РЅРёР±СѓРґСЊ СЃР»СѓС‡Р°Р№РЅР°СЏ СЃС‚СЂРѕРєР°.
             Console.WriteLine();
 
             view.ShowStorage(warehouse.CellsView);
-            cart.Add(iPhone12, 14); //Ошибка, после заказа со склада убираются заказанные товары
+            cart.Add(iPhone12, 14); //РћС€РёР±РєР°, РїРѕСЃР»Рµ Р·Р°РєР°Р·Р° СЃРѕ СЃРєР»Р°РґР° СѓР±РёСЂР°СЋС‚СЃСЏ Р·Р°РєР°Р·Р°РЅРЅС‹Рµ С‚РѕРІР°СЂС‹
         }
     }
 }
