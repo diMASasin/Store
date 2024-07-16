@@ -1,17 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace Store
 {
-    class Program
+    public class Store
     {
-        static void Main(string[] args)
+        private const string Iphone12 = "IPhone 12";
+        private const string Iphone11 = "IPhone 11";
+
+        private static void Main(string[] args)
         {
             View view = new View();
 
-            Good iPhone12 = new Good("IPhone 12");
-            Good iPhone11 = new Good("IPhone 11");
+            Good iPhone12 = new Good(Iphone12);
+            Good iPhone11 = new Good(Iphone11);
 
             Warehouse warehouse = new Warehouse();
             warehouse.Add(iPhone11, -5); //Ошибка

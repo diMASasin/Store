@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Store
+﻿namespace Store
 {
-    class Order
+    public class Order
     {
         public string Paylink { get; private set; }
 
-        private const int _paylinkLength = 20;
+        private const int PaylinkLength = 20;
 
         public Order(Warehouse warehouse, IReadOnlyList<IReadOnlyCell> cartCells)
         {
-            Paylink = GetRandomString(_paylinkLength);
+            Paylink = GetRandomString(PaylinkLength);
             warehouse.Remove(cartCells);
         }
 

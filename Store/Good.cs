@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Store
+﻿namespace Store
 {
-    class Good
+    public class Good
     {
         public readonly string Name;
 

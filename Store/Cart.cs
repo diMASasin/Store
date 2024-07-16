@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Store
+﻿namespace Store
 {
-    class Cart : Storage
+    public class Cart : Storage
     {
         private readonly Warehouse _warehouse;
 
@@ -14,7 +9,7 @@ namespace Store
             _warehouse = warehouse;
         }
 
-        override public void Add(Good good, int quantity)
+        public override void Add(Good good, int quantity)
         {
             if (!_warehouse.IsGoodsEnough(good, quantity))
                 throw new ArgumentOutOfRangeException(nameof(quantity));
@@ -22,9 +17,6 @@ namespace Store
             base.Add(good, quantity);
         }
 
-        public Order Order()
-        {
-            return new Order(_warehouse, CellsView);
-        }
+        public Order Order() => new(_warehouse, CellsView);
     }
 }

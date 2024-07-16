@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Store
+﻿namespace Store
 {
-    class Shop
+    public class Shop
     {
         private readonly Cart _cart;
 
@@ -13,9 +9,6 @@ namespace Store
             _cart = new Cart(warehouse);
         }
 
-        public Cart GetCart()
-        {
-            return _cart;
-        }
+        public Cart GetCart() => _cart;
     }
 }

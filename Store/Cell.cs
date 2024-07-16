@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Store
+﻿namespace Store
 {
-    class Cell : IReadOnlyCell
+    public class Cell : IReadOnlyCell
     {
         public Good Good { get; private set; }
         public int Quantity { get; private set; }
@@ -35,7 +31,7 @@ namespace Store
         }
     }
 
-    interface IReadOnlyCell
+    public interface IReadOnlyCell
     {
         public Good Good { get; }
         public int Quantity { get; }

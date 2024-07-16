@@ -1,27 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Store
+﻿namespace Store
 {
-    class Storage
+    public abstract class Storage
     {
-        protected readonly List<Cell> Cells = new List<Cell>();
+        private readonly List<Cell> _cells = new();
 
-        public IReadOnlyList<IReadOnlyCell> CellsView => Cells;
+        public IReadOnlyList<IReadOnlyCell> CellsView => _cells;
 
-        virtual public void Add(Good good, int quantity)
+        public virtual void Add(Good good, int quantity)
         {
             if (quantity < 1)
                 throw new ArgumentOutOfRangeException(nameof(quantity));
 
-            Cell cell = Cells.FirstOrDefault(cell => cell.Good == good);
+            Cell cell = _cells.FirstOrDefault(cell => cell.Good == good);
 
             if (cell != null)
                 cell.Merge(new Cell(good, quantity));
             else
-                Cells.Add(new Cell(good, quantity));
+                _cells.Add(new Cell(good, quantity));
+        }
+        
+        public void Remove(IReadOnlyList<IReadOnlyCell> cartCells)
+        {
+            foreach (var cell in _cells)
+            {
+                foreach (var cartCell in cartCells)
+                {
+                    if (cell.Good != cartCell.Good)
+                        break;
+
+                    if (cell.Quantity < cartCell.Quantity)
+                        throw new ArgumentOutOfRangeException(nameof(cartCell.Quantity));
+
+                    cell.Remove(cartCell);
+                }
+            }
         }
     }
 }
