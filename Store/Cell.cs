@@ -30,10 +30,4 @@
             Quantity -= cell.Quantity;
         }
     }
-
-    public interface IReadOnlyCell
-    {
-        public Good Good { get; }
-        public int Quantity { get; }
-    }
 }

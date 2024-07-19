@@ -1,22 +1,32 @@
 ﻿namespace Store
 {
-    public class Cart : Storage
+    public class Cart : Warehouse
     {
-        private readonly Warehouse _warehouse;
+        private readonly IWarehouse _warehouse;
 
-        public Cart(Warehouse warehouse)
+        public Cart(IWarehouse warehouse)
         {
             _warehouse = warehouse;
         }
 
-        public override void Add(Good good, int quantity)
+        public override void Add(Good good, int addingQuantity)
         {
-            if (!_warehouse.IsGoodsEnough(good, quantity))
-                throw new ArgumentOutOfRangeException(nameof(quantity));
+            IReadOnlyCell goodInCart = CellsView.FirstOrDefault(cell => cell.Good == good);
+            IReadOnlyCell goodInWarehouse = _warehouse.CellsView.FirstOrDefault(cell => cell.Good == good);
+            
+            int quantityInCart = goodInCart == null ? 0 : goodInCart.Quantity;
+            int quantityInWarehouse = goodInWarehouse == null ? 0 : goodInWarehouse.Quantity;
+            
+            if (quantityInWarehouse < quantityInCart + addingQuantity)
+                throw new ArgumentOutOfRangeException(nameof(addingQuantity));
 
-            base.Add(good, quantity);
+            base.Add(good, addingQuantity);
         }
 
-        public Order Order() => new(_warehouse, CellsView);
+        public Order Order()
+        {
+            _warehouse.Remove(CellsView);
+            return new Order();
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Store
 {
-    class View
+    public class View
     {
         public void ShowStorage(IReadOnlyList<IReadOnlyCell> cells)
         {

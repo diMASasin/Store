@@ -2,14 +2,13 @@
 {
     public class Order
     {
+        private const int PaylinkLength = 20;
+        
         public string Paylink { get; private set; }
 
-        private const int PaylinkLength = 20;
-
-        public Order(Warehouse warehouse, IReadOnlyList<IReadOnlyCell> cartCells)
+        public Order()
         {
             Paylink = GetRandomString(PaylinkLength);
-            warehouse.Remove(cartCells);
         }
 
         private string GetRandomString(int length)

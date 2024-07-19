@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\C#Projects\\Store\\Store\\Store\\Store.csproj": {}
+    "C:\\C#Projects\\Store\\Store\\Store.csproj": {}
   },
   "projects": {
-    "C:\\C#Projects\\Store\\Store\\Store\\Store.csproj": {
+    "C:\\C#Projects\\Store\\Store\\Store.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\C#Projects\\Store\\Store\\Store\\Store.csproj",
+        "projectUniqueName": "C:\\C#Projects\\Store\\Store\\Store.csproj",
         "projectName": "Store",
-        "projectPath": "C:\\C#Projects\\Store\\Store\\Store\\Store.csproj",
+        "projectPath": "C:\\C#Projects\\Store\\Store\\Store.csproj",
         "packagesPath": "C:\\Users\\Dmitriy\\.nuget\\packages\\",
-        "outputPath": "C:\\C#Projects\\Store\\Store\\Store\\obj\\",
+        "outputPath": "C:\\C#Projects\\Store\\Store\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

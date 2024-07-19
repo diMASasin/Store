@@ -19,7 +19,7 @@ namespace Store
 
             warehouse.Add(iPhone12, 10);
             warehouse.Add(iPhone12, 5);
-            warehouse.Add(iPhone11, 1);
+            warehouse.Add(iPhone11, 4);
 
             ////Вывод всех товаров на складе с их остатком
             view.ShowStorage(warehouse.CellsView);
